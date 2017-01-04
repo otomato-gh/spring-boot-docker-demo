@@ -1,0 +1,31 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+  <servers>
+    <server>
+      <id>illin5225:5000</id>
+      <username>psmdocker</username>
+      <password>unix11</password>
+    </server>
+  </servers>
+
+  <mirrors>
+                <mirror>
+                        <id>nexus</id>
+                        <name>nexus</name>
+                        <url>http://10.235.33.100:8081/repository/maven-public/</url>
+                        <mirrorOf>cloudlab</mirrorOf>
+                </mirror>
+        </mirrors>
+        <proxies>
+   <proxy>
+      <id>proxy</id>
+      <active>true</active>
+      <protocol>http</protocol>
+      <host>10.232.233.70</host>
+      <port>8080</port>
+      <nonProxyHosts>illin5225</nonProxyHosts>
+    </proxy>
+  </proxies>
+
+</settings>
