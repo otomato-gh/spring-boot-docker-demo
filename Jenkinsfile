@@ -14,7 +14,7 @@ node{
         {
             echo 'Build'
             withEnv(["PATH+MAVEN=${tool 'maven3.3.9'}/bin"]) {
-                sh 'cd demos/oms_microservice/spring-boot-demo; mvn -s ../settings.xml clean test install'
+                sh 'cd spring-boot-demo; mvn -s ../settings.xml clean test install'
             }
         }
         // Build Docker image(s)
@@ -23,7 +23,7 @@ node{
             // sh "cd demos/oms_microservice/spring-boot-demo; sudo docker build ."
             echo 'Docker Build'
             withEnv(["PATH+MAVEN=${tool 'maven3.3.9'}/bin"]) {
-                sh 'cd demos/oms_microservice/spring-boot-demo; mvn -s ../settings.xml package fabric8:build'
+                sh 'cd spring-boot-demo; mvn -s ../settings.xml package fabric8:build'
            }
         }
 	
@@ -31,7 +31,7 @@ node{
         {
            echo 'Image upload'
            withEnv(["PATH+MAVEN=${tool 'maven3.3.9'}/bin"]) {
-                sh 'cd demos/oms_microservice/spring-boot-demo; mvn -s ../settings.xml -Ddocker.registry=illin5225:5000 fabric8:push'
+                sh 'cd spring-boot-demo; mvn -s ../settings.xml -Ddocker.registry=illin5225:5000 fabric8:push'
            }
         }
 
